@@ -1,0 +1,44 @@
+package com.infosys.expenseManagementApplication.dao;
+
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+import com.infosys.expenseManagementApplication.bean.Category;
+
+@Service
+@Repository
+public abstract class CategoryDaoImpl implements CategoryDao {
+
+    @Autowired
+    private CategoryRepository repository;
+
+    @Override
+    public void save(Category category) {
+        repository.save(category);
+    }
+
+    @Override
+    public Category getCategoryById(Long id) {
+        return repository.findById(id).orElse(null); // Prevents NoSuchElementException
+    }
+
+    @Override
+    public void deleteCategoryById(Long id) {
+        repository.deleteById(id);
+    }
+
+    @Override
+    public List<Category> getAllCategories() {
+        return repository.findAll();
+    }
+    @Override
+    public Long generateCategoryId() {  // Fixed typo from "genarateCategoryId" to "generateCategoryId"
+        Long id = repository.getMaxCategory();
+        if (id == null)
+            id = 1001L;
+        else
+            id++;
+        return id;
+    }
+}
