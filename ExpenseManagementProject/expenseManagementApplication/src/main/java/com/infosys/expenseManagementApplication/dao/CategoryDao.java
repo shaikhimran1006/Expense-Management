@@ -1,6 +1,7 @@
 package com.infosys.expenseManagementApplication.dao;
 
 import java.util.List;
+
 import com.infosys.expenseManagementApplication.bean.Category;
 
 public interface CategoryDao {
@@ -8,7 +9,6 @@ public interface CategoryDao {
     public Category getCategoryById(Long id);
     public void deleteCategoryById(Long id);
     public List<Category> getAllCategories();
-    public Long genarateCategoryId();
+    public Long generateCategoryId();
 
-    Long generateCategoryId();
 }

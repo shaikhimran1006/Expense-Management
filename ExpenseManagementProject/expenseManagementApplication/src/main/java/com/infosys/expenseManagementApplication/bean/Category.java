@@ -12,12 +12,13 @@ import jakarta.persistence.Id;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter(AccessLevel.PUBLIC)
-@Setter(AccessLevel.PUBLIC)
+@Getter (AccessLevel.PUBLIC)
+@Setter (AccessLevel.PUBLIC)
 @ToString
 public class Category {
     @Id
     private Long categoryId;
     private String categoryName;
     private String description;
+
 }
